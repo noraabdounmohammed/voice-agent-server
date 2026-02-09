@@ -20,7 +20,25 @@ const app = express();
 const server = createServer(app);
 const webSocket = new WebSocketServer({ noServer: true });
 
-app.use(cors());
+const allowedOrigins = [
+  'https://studyedit.com',
+  'https://698a40205413e6e9931dcf2e--medicu-app.netlify.app',
+  'http://localhost:5173',
+  'http://localhost:3000',
+];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+        return;
+      }
+      callback(new Error('Not allowed by CORS'));
+    },
+    credentials: true,
+  }),
+);
 app.use(express.json({ limit: '50mb' })); // Increased for voice cloning audio uploads
 app.use(express.static('frontend'));
 
