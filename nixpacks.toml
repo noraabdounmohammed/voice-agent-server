@@ -1,0 +1,9 @@
+[phases.setup]
+# Ensure Node.js is installed for server build
+nixPkgs = ["nodejs_20", "npm"]
+
+[phases.build]
+cmds = ["cd server && npm install"]
+
+[start]
+cmd = "cd server && npm run start"
