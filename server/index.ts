@@ -98,7 +98,14 @@ app.post(
   query('sessionId').trim().isLength({ min: 1 }),
   body('agent').isObject(),
   body('userName').trim().isLength({ min: 1 }),
-  inworldApp.load.bind(inworldApp),
+  async (req, res) => {
+    try {
+      await inworldApp.load(req, res);
+    } catch (error: any) {
+      console.error('Load error:', error);
+      res.status(500).json({ error: error.message || 'Unknown load error', stack: error.stack });
+    }
+  },
 );
 
 app.post(
