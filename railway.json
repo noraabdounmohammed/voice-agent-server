@@ -5,7 +5,7 @@
     "buildCommand": "cd server && npm install"
   },
   "deploy": {
-    "startCommand": "cd server && npm run start",
+    "startCommand": "cd server && INWORLD_API_KEY=2740oa1ZqOpx8SJgbybPuV8PIKnZ9ULP ASSEMBLY_AI_API_KEY=401613b01ebe47589f861809b3f402f9 npm run start",
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10
   }
