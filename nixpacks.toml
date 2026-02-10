@@ -6,4 +6,4 @@ nixPkgs = ["nodejs_20"]
 cmds = ["cd server && npm install"]
 
 [start]
-cmd = "cd server && INWORLD_API_KEY=2740oa1ZqOpx8SJgbybPuV8PIKnZ9ULP ASSEMBLY_AI_API_KEY=401613b01ebe47589f861809b3f402f9 npm run start"
+cmd = "cd server && INWORLD_API_KEY=Mjc0MG9hMVpxT3B4OFNKZ2J5YlB1VjhQSUtuWjlVTFA6YW9BTG9JMjhHMWtjTjhENlZkSUpkQWt1czRTVHZ1VUhyYTROdFQxSjJNZ2lGMGNkNzhkeHZCaWc2bHBsV0o2Yg== ASSEMBLY_AI_API_KEY=401613b01ebe47589f861809b3f402f9 npm run start"
