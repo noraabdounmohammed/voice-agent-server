@@ -1,5 +1,13 @@
 import 'dotenv/config';
 
+// Debug: log which env vars are available at startup
+console.log('ENV CHECK:', {
+  INWORLD_API_KEY: process.env.INWORLD_API_KEY ? `set (${process.env.INWORLD_API_KEY.substring(0, 4)}...)` : 'NOT SET',
+  ASSEMBLY_AI_API_KEY: process.env.ASSEMBLY_AI_API_KEY ? 'set' : 'NOT SET',
+  NODE_ENV: process.env.NODE_ENV || 'not set',
+  allEnvKeys: Object.keys(process.env).filter(k => k.includes('INWORLD') || k.includes('ASSEMBLY') || k.includes('VITE')),
+});
+
 import { InworldError } from '@inworld/runtime/common';
 import cors from 'cors';
 import express from 'express';
