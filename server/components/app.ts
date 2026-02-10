@@ -113,6 +113,15 @@ export class InworldApp {
   async load(req: any, res: any) {
     res.setHeader('Content-Type', 'application/json');
 
+    // Safety check: if initialize() failed, this.env may be undefined
+    if (!this.env) {
+      try {
+        this.env = parseEnvironmentVariables();
+      } catch (envError: any) {
+        return res.status(500).json({ error: `Server not initialized: ${envError.message}` });
+      }
+    }
+
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
