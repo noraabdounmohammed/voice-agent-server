@@ -245,9 +245,9 @@ export class InworldGraphWrapper {
             vadClient: props.vadClient,
             sampleRate: INPUT_SAMPLE_RATE,
             formatTurns: false,
-            endOfTurnConfidenceThreshold: 0.4,
-            minEndOfTurnSilenceWhenConfident: 160,
-            maxTurnSilence: 1280,
+            endOfTurnConfidenceThreshold: 0.5,
+            minEndOfTurnSilenceWhenConfident: 100,
+            maxTurnSilence: 640,
           },
         });
 
